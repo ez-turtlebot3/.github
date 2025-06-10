@@ -68,8 +68,15 @@ Using the TurtleBot Raspberry Pi:
 
 ## Stream TurtleBot3 data
 The following sections make use of the scripts in streaming_scripts/
+On the Raspberry Pi, navigate to `streaming_scripts/pi`
+`cd /path/to/ez-turtlebot/streaming_scripts/pi`
 
-This is the time to clone this repo if you haven't already :)
+On the PC, navigate to `streaming_scripts/pc`
+`cd /path/to/ez-turtlebot/streaming_scripts/pc`
+
+
+You'll need to set environment variables to use these scripts. I recommend copying the export statements from pc/bashrc_exports.pc.example to your ~/.bashrc on your PC and pi/bashrc_exports.pi.example to your ~/.bashrc on your pi. Remember to source the new bashrc files after you edit them :)
+`source ~/.bashrc`
 
 ### Stream analog sensor data to remote PC
 On the pi:
@@ -91,18 +98,25 @@ Using the TurtleBot Raspberry Pi:
 
 
 ### Stream audio to remote PC
-On the pi: 
-1. Copy the export statements from bashrc_exports.pi.example to your ~/.bashrc and then `source ~/.bashrc`
-2. `cd /path/to/ez-turtlebot/streaming_scripts/
+1. On the pi: `./stream_audio_to_pc.sh`
+2. On the PC: `./open_audio_stream.sh`
 
 ### Stream video to remote PC
-
+1. On the pi: `./stream_video_to_pc.sh`
+2. On the PC: `./open_video_stream.sh`
 
 ### Stream video to AWS Kinesis
-
+1. On the pi: `./stream_video_to_AWS`
 
 ### Stream video with object detection overlays to remote PC
-
+1. On the pi: `python3 stream_object_detection_video_to_pc.py`
+2. On the PC: `./open_video_stream.sh`
 
 ### Stream video with object detection overlays to YouTube Live
-_Coming soon_
+1. You'll need a YouTube channel and you'll need to get that channel approved for streaming. The first time you try to "go live" YouTube will start this approval process.
+2. In a web browser, navigate to studio.youtube.com and sign in to your account.
+3. "Go Live". If it asks you how you want to go live, e.g., webcam, select the streaming software option.
+4. Copy the stream key to the YT_STREAM_KEY variable of your ~/.bashrc and source the ~/.bashrc file.
+5. On the pi: `python3 stream_object_detection_video_to_YT.py`
+If you want to stream the video with object detection overlays to both YouTube live and the remote PC, use this script _instead_ of the one above:
+`python3 stream_obj_det_to_both.py`
