@@ -22,6 +22,8 @@ void setup() {
   // This will be the header row for your CSV
   // Serial.println("A3,A4,A5");  // 
   Serial.println("A0,A1,A2,A3,A4,A5");
+
+  analogReadResolution(12);
 }
 
 // the loop routine runs over and over again forever:
@@ -31,9 +33,9 @@ void loop() {
     // retrieve measurement in bits
     int sensorValue = analogRead(A0 + pin);
 
-    // convert measurement to V
-    float voltage = sensorValue / 1023.0 * 3.3;
-    // print the V
+    // // convert measurement to V
+    float voltage = sensorValue / 4095.0 * 3.3;
+    // // print the V
     Serial.print(voltage);
 
     // print just the sensor value
