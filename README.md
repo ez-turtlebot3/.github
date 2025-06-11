@@ -1,8 +1,9 @@
 # Overview
 This TurtleBot3 project achieves the following:
 * Optimized autonomous navigation and obstacle avoidance
+  * Navigation is currently broken... WIP
 * Publishes a ROS 2 topic of measurements from analog pins A0-A5 from the TurtleBot OpenCR microcontroller board
-* Streams analog data, audio and video to a remote pc or to a cloud service (currently AWS or YouTube)
+* Streams analog data, audio and video to a remote pc or to a cloud service (AWS or YouTube)
 
 # Contents
 * Streaming Scripts
@@ -119,4 +120,4 @@ Using the TurtleBot Raspberry Pi:
 4. Copy the stream key to the YT_STREAM_KEY variable of your ~/.bashrc and source the ~/.bashrc file.
 5. On the pi: `python3 stream_object_detection_video_to_YT.py`
 If you want to stream the video with object detection overlays to both YouTube live and the remote PC, use this script _instead_ of the one above:
-`python3 stream_obj_det_to_both.py`
+`python3 stream_object_detection_video_to_both.py`

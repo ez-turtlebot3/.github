@@ -3,6 +3,8 @@ import json
 import logging
 import time
 import uuid
+import os
+import sys
 from concurrent.futures import Future
 
 import yaml
@@ -18,21 +20,30 @@ def get_device_name():
     return thing_name
 
 
-AWS_IOT_ENDPOINT = "xxxxxxxxxx-ats.iot.us-west-2.amazonaws.com"  # AWS IoT custom endpoint
-DEVICE_CERTIFICATE = "/greengrass/v2/device.pem.crt"  # Path to device certificate
-DEVICE_PRIVATE_KEY = "/greengrass/v2/private.pem.key"  # Path to device private key
-AMAZON_ROOT_CERTIFICATE = "/greengrass/v2/AmazonRootCA1.pem"  # Path to Amazon Root CA certificate
-MQTT_PORT = 8883  # Port for MQTT over TLS, default: 8883
-DEVICE_ID = get_device_name()
-MQTT_CLIENT_ID = f"{DEVICE_ID}-{uuid.uuid4()}"  # MQTT unique client Id
-MQTT_TOPIC = "ez/sensordata/chemical"  # MQTT topic to publish to
-NUMBER_OF_MESSAGES = 10  # Number of messages to send (0 for infinite)
-SENSOR_TYPE = "Chemical"
-PUBLISH_INTERVAL = 1
-
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+
+# Environment variables
+AWS_IOT_ENDPOINT = os.getenv('AWS_IOT_ENDPOINT')
+if not AWS_IOT_ENDPOINT:
+    logger.error("AWS_IOT_ENDPOINT environment variable is not set. Please set it in your .env.pi file.")
+    sys.exit(1)
+
+DEVICE_CERTIFICATE = os.getenv('DEVICE_CERTIFICATE', "/greengrass/v2/device.pem.crt")
+DEVICE_PRIVATE_KEY = os.getenv('DEVICE_PRIVATE_KEY', "/greengrass/v2/private.pem.key")
+AMAZON_ROOT_CERTIFICATE = os.getenv('AMAZON_ROOT_CERTIFICATE', "/greengrass/v2/AmazonRootCA1.pem")
+MQTT_TOPIC = os.getenv('MQTT_TOPIC', "ez-tb/sensordata/analog")
+SENSOR_TYPE = os.getenv('SENSOR_TYPE', "Analog")
+
+# Variables that are unlikely to change
+MQTT_PORT = 8883  # Port for MQTT over TLS, default: 8883
+DEVICE_ID = get_device_name()
+MQTT_CLIENT_ID = f"{DEVICE_ID}-{uuid.uuid4()}"  # MQTT unique client Id
+NUMBER_OF_MESSAGES = 10  # Number of messages to send (0 for infinite)
+PUBLISH_INTERVAL = 1
+
 
 # --- Global Variables ---
 mqtt_connection = None
