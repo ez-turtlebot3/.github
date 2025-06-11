@@ -1,5 +1,5 @@
 """
-stream_obj_det_to_both.py - Object detection with overlays to YouTube Live AND remote PC
+stream_object_detection_video_to_both.py - Object detection with overlays to YouTube Live AND remote PC
 
 This script uses the IMX500 AI Camera for object detection, draws overlays,
 and streams the output to both YouTube Live (RTMP) and a remote PC (UDP) using ffmpeg.
