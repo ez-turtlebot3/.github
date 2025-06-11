@@ -1,8 +1,11 @@
 /*
-  ReadAnalogOutInCSVFormat
+  ReadAnalogPinsInCSVFormat
 
-  Reads analog inputs on pins A0-A5, prints the results to the Serial Monitor in CSV format.
-  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
+  Reads analog inputs on pins A0-A5, prints the results in CSV format.
+  This script is especially useful when its output is piped to a file and plotted using plot_opencr_sensors.py.
+  Real-time graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
+
+  This script was adapted from the Arduino IDE's AnalogReadSerial example.
 */
 
 

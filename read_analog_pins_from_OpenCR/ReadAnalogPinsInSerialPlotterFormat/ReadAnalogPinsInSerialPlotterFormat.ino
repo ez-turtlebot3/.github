@@ -1,17 +1,14 @@
 /*
-  AnalogReadSerial
+  ReadAnalogPinsInSerialPlotterFormat
 
-  Reads an analog input on pin 0, prints the result to the Serial Monitor.
-  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
-  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
+  Reads analog inputs on pins A0-A5, prints the results in the Arduino IDE's Serial Plotter format.
+  Real-time graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
 
-  This example code is in the public domain.
-
-  https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial/
+  This script was adapted from the Arduino IDE's AnalogReadSerial example.
 */
 
 
-const int numPins = 5;  // A0-A4 = 5 pins
+const int numPins = 6;  // A0-A5 = 6 pins
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -19,7 +16,7 @@ void setup() {
   Serial.begin(9600);
   
   // Print header labels for Serial Plotter (optional, helps with identification)
-  Serial.println("A0,A1,A2,A3,A4");
+  Serial.println("A0,A1,A2,A3,A4,A5");
 }
 
 // the loop routine runs over and over again forever:
