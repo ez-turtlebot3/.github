@@ -76,7 +76,7 @@ On the PC, navigate to `streaming_scripts/pc`
 `cd /path/to/ez-turtlebot/streaming_scripts/pc`
 
 
-You'll need to set environment variables to use these scripts. I recommend copying the export statements from pc/bashrc_exports.pc.example to your ~/.bashrc on your PC and pi/bashrc_exports.pi.example to your ~/.bashrc on your pi. Remember to source the new bashrc files after you edit them :)
+You'll need to set environment variables to use these scripts. I recommend copying the export statements from `pc/bashrc_exports.pc.example` to your `~/.bashrc` on your PC and `pi/bashrc_exports.pi.example` to your `~/.bashrc` on your pi. Remember to source the new bashrc files after you edit them :)
 `source ~/.bashrc`
 
 ### Stream analog sensor data to remote PC
