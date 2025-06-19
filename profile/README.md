@@ -1,6 +1,4 @@
 # Overview
-This repo stands as the front page to the [ez-turtlebot3 project](https://github.com/ez-turtlebot3).
-
 The ez-turtlebot3 project achieves the following:
 * Optimized autonomous navigation and obstacle avoidance
   * Navigation is currently broken... WIP
@@ -69,9 +67,3 @@ ros2 run turtlebot3_teleop teleop_keyboard
 8. Drive around.
 9. Profit.
 10. To exit, CTR+C all the terminal windows this procedure opened on the remote PC and pi.
-
-# Contents of this repo
-The purpose of this repo is to stand as the front page for the ez-turtlebot3 project. Aside from this README, there are some other bits and pieces in here that may be useful to other members of the TurtleBot community.
-* commands_and_tips: Commands, tips, and notes to copy-paste or reference frequently
-* Humble_install_steps: The steps I took to install ROS 2 Humble to Raspberry Pi OS x64
-* nav2_params: The Nav2 parameters file for optimized navigation in tight labs and office spaces. The file invokes the MPPI controller and the Smac Hybrid A* Planner.
