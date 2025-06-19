@@ -8,8 +8,8 @@ ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
 # Start navigation2
 # Requires ~/map.yaml
-ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=path/to/map.yaml params_file:=$HOME/ez-turtlebot/nav2_params.yaml
-ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/maps/turtle_world.yaml params_file:=$HOME/ez-turtlebot/nav2_params.yaml  # (if in sim)
+ros2 launch turtlebot3_navigation2 navigation2.launch.py map:=path/to/map.yaml params_file:=$HOME/ez-turtlebot3/nav2_params.yaml
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=$HOME/maps/turtle_world.yaml params_file:=$HOME/ez-turtlebot3/nav2_params.yaml  # (if in sim)
 
 # Start cartographer
 ros2 launch turtlebot3_cartographer cartographer.launch.py  # use_sim_time:=True (if in sim)
@@ -20,11 +20,6 @@ ros2 run nav2_map_server map_saver_cli -f ~/path/to/map
 
 # Teleoperation
 ros2 run turtlebot3_teleop teleop_keyboard
-
-# Open RViz
-ros2 run rviz2 rviz2
-# Open RViz with nav2 default topics
-ros2 run rviz2 rviz2 -d /opt/ros/humble/share/nav2_bringup/rviz/nav2_default_view.rviz
 
 # Record a ROS 2 bag of all topics
 ros2 bag record -o <BAG_NAME> -a
